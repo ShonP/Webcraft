@@ -83,8 +83,8 @@ export class AppService {
 
         // Create a real pseudo-terminal
         const ptyProcess: IPty = ptySpawn(
-          'claude --dangerously-skip-permissions',
-          [prompt],
+          'claude',
+          ['--dangerously-skip-permissions', '-p', prompt],
           {
             name: 'xterm-color',
             cols: 120,
@@ -100,62 +100,19 @@ export class AppService {
 
         console.log('PTY process started with PID:', ptyProcess.pid);
 
-        let output = '';
-        let hasReceivedData = false;
-
-        ptyProcess.onData((data: string) => {
-          hasReceivedData = true;
-          output += data;
-          console.log('PTY received:', JSON.stringify(data));
-
-          // Auto-respond to common prompts
-          const lowerData = data.toLowerCase();
-          if (
-            lowerData.includes('select') ||
-            lowerData.includes('choose') ||
-            lowerData.includes('option') ||
-            lowerData.includes('>')
-          ) {
-            console.log('Detected prompt, sending Enter');
-            ptyProcess.write('\r');
-          }
-        });
-
         ptyProcess.onExit(({ exitCode, signal }) => {
           console.log(
             `PTY process exited with code: ${exitCode}, signal: ${signal}`,
           );
-          const cleanedOutput = this.parseClaudeOutput(output);
           resolve({
             success: exitCode === 0,
-            output: cleanedOutput || 'Command completed',
+            output: 'Command completed',
             error:
               exitCode !== 0
                 ? `Process exited with code ${exitCode}`
                 : undefined,
           });
         });
-
-        // Check if process is still alive after 10 seconds
-        setTimeout(() => {
-          if (!hasReceivedData) {
-            console.log(
-              'No data received after 10 seconds, process still running...',
-            );
-            console.log('Process PID:', ptyProcess.pid);
-          }
-        }, 10000);
-
-        // Timeout after 5 minutes
-        setTimeout(() => {
-          console.log('Killing PTY process due to timeout');
-          ptyProcess.kill();
-          resolve({
-            success: false,
-            output: output || 'Timeout - process killed',
-            error: 'Command timed out after 5 minutes',
-          });
-        }, 300000);
       });
     } catch (error: unknown) {
       console.error('Claude command error:', error);

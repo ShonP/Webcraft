@@ -11,9 +11,9 @@ export const Landing: FC = () => {
     <LandingContainer>
       <HeroSection>
         <Flex direction="column" gap="4" align="center">
-          <Badge color="blue" size="2">Welcome to WebCraft</Badge>
+          <Badge color="blue" size="2">Shon's website</Badge>
           <Heading size="9" style={{ textAlign: 'center' }}>
-            Build Beautiful Web Applications
+            Welcome to my website
           </Heading>
           <Text size="5" color="gray" style={{ textAlign: 'center', maxWidth: '600px' }}>
             A modern React starter template with everything you need to build amazing user experiences
