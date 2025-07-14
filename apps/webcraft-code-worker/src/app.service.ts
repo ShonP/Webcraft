@@ -82,17 +82,21 @@ export class AppService {
         console.log(`Working directory: ${customAppPath}`);
 
         // Create a real pseudo-terminal
-        const ptyProcess: IPty = ptySpawn('claude --dangerously-skip-permissions -p', [prompt], {
-          name: 'xterm-color',
-          cols: 120,
-          rows: 30,
-          cwd: customAppPath,
-          env: {
-            ...process.env,
-            TERM: 'xterm-256color',
-            FORCE_COLOR: '1',
+        const ptyProcess: IPty = ptySpawn(
+          'claude --dangerously-skip-permissions',
+          [prompt],
+          {
+            name: 'xterm-color',
+            cols: 120,
+            rows: 30,
+            cwd: customAppPath,
+            env: {
+              ...process.env,
+              TERM: 'xterm-256color',
+              FORCE_COLOR: '1',
+            },
           },
-        });
+        );
 
         console.log('PTY process started with PID:', ptyProcess.pid);
 
