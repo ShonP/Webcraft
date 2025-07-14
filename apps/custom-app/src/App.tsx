@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { FC, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Theme } from '@radix-ui/themes'
+import { SettingsProvider, useSettingsContext } from './context/SettingsContext'
+import { Navigation } from './components/Navigation'
+import { Home } from './pages/Home'
+import { Settings } from './pages/Settings'
+import { getEffectiveTheme } from './utils/theme'
+import './i18n'
 
-function App() {
-  const [count, setCount] = useState(0)
+const AppContent: FC = () => {
+  const { settings } = useSettingsContext()
+  const effectiveTheme = getEffectiveTheme(settings.theme.mode)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', effectiveTheme)
+  }, [effectiveTheme])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Theme
+      appearance={effectiveTheme}
+      accentColor={settings.theme.accentColor as any}
+      radius={settings.theme.radius}
+    >
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
+    </Theme>
   )
 }
 
-export default App
+const App: FC = () => {
+  return (
+    <SettingsProvider>
+      <AppContent />
+    </SettingsProvider>
+  )
+}
+
+export default App 

@@ -1,0 +1,32 @@
+{
+  "app": {
+    "title": "WebCraft Starter",
+    "navigation": {
+      "home": "Home",
+      "settings": "Settings"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "language": {
+      "title": "Language",
+      "english": "English"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "accent_color": "Accent Color",
+      "radius": "Border Radius"
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "apply": "Apply"
+  }
+} 
