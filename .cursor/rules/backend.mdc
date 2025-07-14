@@ -1,0 +1,17 @@
+---
+description: Backend rules
+globs: apps/webcraft-code-worker/*
+alwaysApply: false
+---
+In backend:
+- Use a single object argument for all functions and methods with named properties instead of multiple parameters, For example this is good: const function=(args:{arg1:string,arg2:number})=>{}
+- Always think of reusability and modularity
+- For worker async services use the service bus to schedule messages (The worker will consume it)
+- Don't import directly always import from the root of the repo
+- Always work with interfaces first and then implement them. most of the times interfaces are already exist so check before you create new ones
+- When creating new interface start with an "I" for example IParams
+- Keep modules independent and avoid tight coupling between services
+- Use dependency injection for services and repositories
+- Write self-descriptive code without comments
+- Ignore prettier errors for spacing or line breaks
+- Log meaningful operations to easily trace the flow and find issues

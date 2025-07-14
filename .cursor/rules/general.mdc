@@ -1,0 +1,8 @@
+---
+description: General rules
+globs: 
+alwaysApply: true
+---
+- Write self-descriptive code without comments or explainations.
+- Remove unused values/variables keep the code clean
+- Don't write any comments!!! (Super important) No need to explain
