@@ -1,0 +1,10 @@
+{
+  "name": "webcraft-workspace",
+  "version": "1.0.0",
+  "author": "Shon Pazarker, pazshon1@gmail.com",
+  "license": "ISC",
+  "description": "Webcraft is a web application that allows you to create and manage your own website.",
+  "workspaces": [
+    "apps/*"
+  ]
+}
