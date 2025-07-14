@@ -1,0 +1,33 @@
+{
+  "app": {
+    "title": "WebCraft Starter",
+    "navigation": {
+      "home": "בית",
+      "settings": "הגדרות"
+    }
+  },
+  "settings": {
+    "title": "הגדרות",
+    "theme": {
+      "title": "נושא",
+      "light": "בהיר",
+      "dark": "כהה",
+      "system": "מערכת"
+    },
+    "language": {
+      "title": "שפה",
+      "english": "אנגלית",
+      "hebrew": "עברית"
+    },
+    "appearance": {
+      "title": "מראה",
+      "accent_color": "צבע הדגשה",
+      "radius": "רדיוס גבול"
+    }
+  },
+  "common": {
+    "save": "שמור",
+    "cancel": "בטל",
+    "apply": "החל"
+  }
+}

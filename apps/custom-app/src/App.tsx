@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Theme } from '@radix-ui/themes'
 import { SettingsProvider, useSettingsContext } from './context/SettingsContext'
 import { Navigation } from './components/Navigation'
+import { Landing } from './pages/Landing'
 import { Home } from './pages/Home'
 import { Settings } from './pages/Settings'
 import { getEffectiveTheme } from './utils/theme'
@@ -25,7 +26,8 @@ const AppContent: FC = () => {
       <Router>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>

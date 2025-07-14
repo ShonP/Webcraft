@@ -26,5 +26,6 @@ export const BORDER_RADIUS_OPTIONS = [
 ]
 
 export const LANGUAGES = [
-  { code: 'en', name: 'English' }
+  { code: 'en', name: 'English' },
+  { code: 'he', name: 'עברית' }
 ] 

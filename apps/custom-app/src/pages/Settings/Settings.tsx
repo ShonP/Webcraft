@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Heading, Card, Text, Button, Select, RadioGroup, Grid } from '@radix-ui/themes'
+import { Flex, Heading, Card, Text, Select, RadioGroup, Grid } from '@radix-ui/themes'
 import { useSettingsContext } from '../../context/SettingsContext'
 import { THEME_COLORS, BORDER_RADIUS_OPTIONS, LANGUAGES } from '../../constants'
 import { PageContainer, ColorButton } from './Settings.styles'
@@ -50,7 +50,7 @@ export const Settings: FC = () => {
               <Text weight="medium">{t('settings.appearance.radius')}</Text>
               <Select.Root
                 value={settings.theme.radius}
-                onValueChange={(value) => updateThemeSettings({ radius: value as any })}
+                onValueChange={(value) => updateThemeSettings({ radius: value as 'none' | 'small' | 'medium' | 'large' | 'full' })}
               >
                 <Select.Trigger />
                 <Select.Content>
