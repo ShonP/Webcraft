@@ -212,26 +212,3 @@ Response:
 }
 ```
 
-## 🎬 Perfect for Video Recording
-
-This setup is ideal for creating development tutorials and demos:
-- **Split screen** shows both chat and live preview
-- **Responsive testing** demonstrates mobile/tablet layouts
-- **Loading states** provide visual feedback
-- **Professional design** looks great on camera
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test all three applications
-5. Submit a pull request
-
-## 📄 License
-
-[Your License Here]
-
----
-
-**Happy coding with WebCraft! 🚀✨** 
