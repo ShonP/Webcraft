@@ -5,19 +5,53 @@ interface IMessageContainerProps {
 }
 
 export const MessageContainer = styled.div<IMessageContainerProps>`
-  padding: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  justify-content: ${props => props.isUser ? 'flex-end' : 'flex-start'};
   margin-block: var(--space-2);
+  max-width: 85%;
   align-self: ${props => props.isUser ? 'flex-end' : 'flex-start'};
-  max-width: 80%;
 `
 
-export const MessageContent = styled.div`
-  background: var(--color-surface);
-  padding: var(--space-3);
-  border-radius: var(--radius-3);
-  border: 1px solid var(--gray-6);
+export const MessageBubble = styled.div<IMessageContainerProps>`
+  background: ${props => props.isUser ? 'var(--accent-9)' : 'var(--gray-3)'};
+  color: ${props => props.isUser ? 'white' : 'var(--gray-12)'};
+  padding: var(--space-4) var(--space-5);
+  border-radius: 20px;
+  border-top-${props => props.isUser ? 'right' : 'left'}-radius: 8px;
+  max-width: 100%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+    white-space: pre-wrap;
+  }
 `
 
-export const MessageAvatar = styled.div`
+export const MessageStatus = styled.div`
+  margin-top: var(--space-2);
+  font-size: 13px;
+  opacity: 0.7;
+`
+
+export const MessageAvatar = styled.div<IMessageContainerProps>`
   flex-shrink: 0;
+  order: ${props => props.isUser ? 1 : 0};
+  
+  [data-radix-avatar-root] {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--gray-4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 ` 

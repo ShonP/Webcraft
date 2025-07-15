@@ -8,7 +8,11 @@ import { chatApi } from '../../services/api'
 import type { IChatMessage } from '../../types'
 import { ChatWrapper, ChatHeader, MessagesContainer } from './ChatContainer.styles'
 
-export const ChatContainer: FC = () => {
+interface IChatContainerProps {
+  onLoadingChange?: (isLoading: boolean) => void
+}
+
+export const ChatContainer: FC<IChatContainerProps> = ({ onLoadingChange }) => {
   const [messages, setMessages] = useState<IChatMessage[]>([])
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -62,6 +66,10 @@ export const ChatContainer: FC = () => {
     }
   })
 
+  useEffect(() => {
+    onLoadingChange?.(sendMessageMutation.isPending)
+  }, [sendMessageMutation.isPending, onLoadingChange])
+
   const handleSendMessage = (content: string) => {
     const userMessage: IChatMessage = {
       id: Date.now().toString(),
@@ -82,11 +90,11 @@ export const ChatContainer: FC = () => {
   return (
     <ChatWrapper>
       <ChatHeader>
-        <Heading size="4">Claude Chat</Heading>
+        <Heading size="6">Claude Chat</Heading>
       </ChatHeader>
       
       <MessagesContainer>
-        <ScrollArea style={{ height: '100%' }}>
+        <ScrollArea style={{ height: '100%', padding: '0 var(--space-4)' }}>
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />
           ))}

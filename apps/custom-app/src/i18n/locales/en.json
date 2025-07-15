@@ -1,9 +1,47 @@
 {
   "app": {
-    "title": "WebCraft Starter",
+    "title": "starter app",
     "navigation": {
       "home": "Home",
       "settings": "Settings"
+    }
+  },
+  "landing": {
+    "hero": {
+      "badge": "Shon's website",
+      "title": "Welcome to my website",
+      "description": "A modern React starter template with everything you need to build amazing user experiences"
+    },
+    "features": {
+      "design": {
+        "title": "🎨 Beautiful Design",
+        "description": "Built with Radix UI Themes for consistent, accessible, and beautiful components out of the box"
+      },
+      "scale": {
+        "title": "🚀 Ready to Scale",
+        "description": "TypeScript, React Router, and modern tooling configured for building production-ready applications"
+      },
+      "global": {
+        "title": "🌍 Global Ready",
+        "description": "Internationalization support with React i18next, making your app accessible to users worldwide"
+      },
+      "fast": {
+        "title": "⚡ Lightning Fast",
+        "description": "Powered by Vite for instant development feedback and optimized production builds"
+      },
+      "customizable": {
+        "title": "🎯 Customizable",
+        "description": "Theme system with dark/light mode support and customizable accent colors and layouts"
+      },
+      "responsive": {
+        "title": "📱 Responsive",
+        "description": "Mobile-first design that works perfectly on all devices and screen sizes"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "explore": "Explore App",
+      "customize": "Customize"
     }
   },
   "settings": {
@@ -23,6 +61,42 @@
       "title": "Appearance",
       "accent_color": "Accent Color",
       "radius": "Border Radius"
+    }
+  },
+  "reviews": {
+    "title": "What People Are Saying",
+    "subtitle": "See what users love about our application",
+    "users": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "role": "Product Manager",
+        "text": "Absolutely love this app! The interface is clean and intuitive, and the features work exactly as expected. Highly recommend!"
+      },
+      "mike": {
+        "name": "Mike Chen",
+        "role": "Developer",
+        "text": "Great experience using this application. The theming options are fantastic and the performance is excellent."
+      },
+      "emma": {
+        "name": "Emma Wilson",
+        "role": "Designer",
+        "text": "Very impressed with the design system and how responsive it is. The internationalization support is a nice touch."
+      },
+      "david": {
+        "name": "David Rodriguez",
+        "role": "User",
+        "text": "The customization options are amazing. I love being able to switch between themes and adjust the interface to my liking."
+      },
+      "lisa": {
+        "name": "Lisa Park",
+        "role": "QA Engineer",
+        "text": "Smooth, fast, and well-designed. Everything I need in a modern web application. The settings management is particularly well done."
+      },
+      "alex": {
+        "name": "Alex Thompson",
+        "role": "Software Engineer",
+        "text": "Really solid application with great attention to detail. The TypeScript integration makes it feel very professional."
+      }
     }
   },
   "common": {

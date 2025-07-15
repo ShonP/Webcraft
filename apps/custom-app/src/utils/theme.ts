@@ -10,4 +10,9 @@ export const getEffectiveTheme = (mode: 'light' | 'dark' | 'system'): 'light' | 
     return getSystemTheme()
   }
   return mode
+}
+
+export const isRTLLanguage = (language: string): boolean => {
+  const rtlLanguages = ['ar', 'he', 'fa', 'ur', 'yi']
+  return rtlLanguages.includes(language)
 } 
